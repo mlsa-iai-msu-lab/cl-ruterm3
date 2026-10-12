@@ -1,7 +1,6 @@
 # CL-RuTerm3 1.1
 
-A Russian dataset of scientific texts for automatic term extraction and classification, prepared for the
-RuTermEval ([origin](https://codalab.lisn.upsaclay.fr/competitions/19601), [new](https://www.codabench.org/competitions/15972/)) shared task.
+CL-RuTerm3 is a Russian dataset of scientific texts for automatic term extraction and classification, developed for the RuTermEval-2024 shared task as part of the Dialogue 2025 conference ([original platform](https://codalab.lisn.upsaclay.fr/competitions/19601), [current platform](https://www.codabench.org/competitions/15972/)).
 The annotations include nested and partially overlapping terms.
 
 Version **1.1** combines the shared task data into `train`, `dev`, and `test` splits.
