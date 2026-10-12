@@ -29,9 +29,9 @@ Each use of a term at a different position counts as a separate occurrence.
 The files are stored in `data/` as UTF-8 JSONL.
 
 - `train.jsonl` — training texts and annotations.
-- `dev_input.jsonl`, `dev_ref.jsonl` — development texts and gold annotations.
+- `dev.jsonl`, `dev_ref.jsonl` — development texts and gold annotations.
 - `test.jsonl` — test texts.
-- `ref_v4.jsonl` — test texts, domain codes, and gold annotations.
+- `test_ref_v4.jsonl` — test texts, domain codes, and gold annotations.
 
 Match texts and annotations **by `id`**, as the row order differs between files.
 The `label` field contains `[start, end, class]` triples. Offsets are zero-based
