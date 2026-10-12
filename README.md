@@ -1,3 +1,66 @@
-# Датасет CL-RuTerm3
+# CL-RuTerm3 1.1
 
-Специально для соревнования подготовлен вручную размеченный набор данных на материале русскоязычных аннотаций статей конференции “Диалог” за период 2000-2023 гг. (всего 1165 текстов). На текущий момент его объём превышает все существующие открытые датасеты для решения подобной задачи на материале русского языка. Дополнительной особенностью CL-RuTerm3 является разметка вложенных терминов.
+A Russian dataset of scientific texts for automatic term extraction and classification, prepared for the
+RuTermEval [origin](https://codalab.lisn.upsaclay.fr/competitions/19601, [new](https://www.codabench.org/competitions/15972/) shared task.
+The annotations include nested and partially overlapping terms.
+
+Version **1.1** combines the shared task data into `train`, `dev`, and `test` splits.
+The training and development sets cover computational linguistics. The test set
+covers all six domains: computational linguistics, literature studies,
+agrochemistry, medicine, mathematics, and economics. This supports both evaluation
+within the training domain and experiments on transfer to other domains.
+
+**Full-text articles are temporarily excluded and will be added separately.**
+
+## Splits
+
+| Split | Documents | Term occurrences | Source |
+|---|---:|---:|---|
+| `train` | 850 | 17,802 | Shared task training set |
+| `dev` | 103 | 2,277 | Initial test set of Tracks 1 and 2 |
+| `test` | 317 | 11,547 | Both test sets of Track 3 and the final test set of Tracks 1 and 2 |
+| **Total** | **1,270** | **31,626** | |
+
+These counts correspond to version 1.1, commit
+[`1aaa1e8`](https://github.com/mlsa-iai-msu-lab/cl-ruterm3/tree/1aaa1e841cc1a077abe22ad9f56154f63fb6ad00).
+Each use of a term at a different position counts as a separate occurrence.
+
+## Files and annotation format
+
+The files are stored in `data/` as UTF-8 JSONL.
+
+- `train.jsonl` — training texts and annotations.
+- `dev_input.jsonl`, `dev_ref.jsonl` — development texts and gold annotations.
+- `test.jsonl` — test texts.
+- `ref_v4.jsonl` — test texts, domain codes, and gold annotations.
+
+Match texts and annotations **by `id`**, as the row order differs between files.
+The `label` field contains `[start, end, class]` triples. Offsets are zero-based
+Unicode character indices into `text`, with an inclusive start and exclusive end
+(`text[start:end]` in Python).
+
+Classes:
+
+- `specific` — a term that is both domain-specific and lexically specific.
+- `common` — a domain term also familiar to non-specialists.
+- `nomen` — a unique name of an object belonging to the domain.
+
+Preserve nested and overlapping spans during processing. Use `dev` for model
+tuning and `test` for final evaluation; report results for each domain and for
+the combined test set.
+
+## Citation
+
+When using the dataset, cite the paper describing the original resource:
+[Mamontova, Ischenko, Vorontsov (2025)](https://dialogue-conf.org/wp-content/uploads/2025/04/MamontovaAIschenkoRVorontsovK.pdf).
+
+```bibtex
+@inproceedings{mamontova2025rutermeval,
+  author = {Mamontova, Angelina and Ischenko, Roman and Vorontsov, Konstantin},
+  title = {{RuTermEval-2024}: Cross-domain Automatic Term Extraction and Classification in Russian scientific texts},
+  booktitle = {Computational Linguistics and Intellectual Technologies: Proceedings of the International Conference {Dialogue 2025}},
+  year = {2025},
+  doi = {10.28995/2075-7182-2025-23-245-256}
+}
+```
+
