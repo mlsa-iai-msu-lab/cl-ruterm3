@@ -49,9 +49,7 @@ tuning and `test` for final evaluation; report results for each domain and for
 the combined test set.
 
 
-## LICENSE
-
-# License and Third-Party Content
+## License and Third-Party Content
 
 The original term annotations, annotation guidelines, and other original documentation developed for the CL-RuTerm3 dataset are licensed under the [**Creative Commons Attribution 4.0 International (CC BY 4.0)** license](https://creativecommons.org/licenses/by/4.0/).
 
@@ -59,7 +57,7 @@ The original term annotations, annotation guidelines, and other original documen
 
 Copyright in the original scientific texts remains with their respective authors, publishers, or other rights holders. Such materials are governed by their original licenses or separately obtained permissions.
 
-# Citation
+## Citation
 
 When using the dataset, cite the paper describing the original resource:
 [Mamontova, Ischenko, Vorontsov (2025)](https://dialogue-conf.org/wp-content/uploads/2025/04/MamontovaAIschenkoRVorontsovK.pdf).
